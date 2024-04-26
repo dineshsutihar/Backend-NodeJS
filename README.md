@@ -56,3 +56,29 @@ npm install <package-name> --save-dev
 }
 ```
 
+
+# Middleware 
+- Middleware functions are functions that have access to the request object (req), the response object (res), and the next middleware function in the application’s request-response cycle.
+- Middleware functions can perform the following tasks:
+  - Execute any code.
+  - Make changes to the request and the response objects.
+  - End the request-response cycle.
+  - Call the next middleware function in the stack.
+
+## Types of Middleware
+1. Application-level Middleware
+2. Router-level Middleware
+3. Error-handling Middleware
+4. Built-in Middleware
+5. Third-party Middleware
+
+## Example
+```javascript
+const express = require('express');
+const app = express();
+
+// Application-level Middleware
+app.use((req, res, next) => {
+  console.log('Time:', Date.now());
+  next();
+});

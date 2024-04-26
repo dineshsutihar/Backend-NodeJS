@@ -1,6 +1,10 @@
 const express = require('express');
 const app = express();
 
+// Form Data parsers
+app.use(express.json())
+app.use(express.urlencoded({extended:true}))
+
 //Middleware
 app.use((req,res,next)=>{
     console.log('Middlewere working');

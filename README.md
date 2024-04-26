@@ -82,3 +82,25 @@ app.use((req, res, next) => {
   console.log('Time:', Date.now());
   next();
 });
+```
+
+
+# Form Handling and working with Forms
+- Form handling is a common requirement in web applications.
+- Forms are used to collect user input.
+- In Node.js applications, we can handle form data using the `body-parser` middleware.
+- we already have multiple packages available to handle form data in Node.js applications.
+- eg: `body-parser`, `multer`, `formidable`, etc.
+
+## Session & Cookies
+- Sessions and cookies are used to store user-specific data.
+- Sessions are stored on the server, and cookies are stored on the client-side.
+
+- Cookies are small pieces of data that are stored in the client's browser.
+- They are sent to the server with every request.
+
+#### Use this befor any route so that we can handle form data
+```javascript
+app.use(express.urlencoded({ extended: false }));
+app.use(express.json());
+```

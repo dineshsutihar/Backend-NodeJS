@@ -1,0 +1,14 @@
+{
+  "name": "expressbackend",
+  "version": "1.0.0",
+  "description": "This will contain all details about backend ",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Dinesh Kumar Sutihar",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.19.2"
+  }
+}

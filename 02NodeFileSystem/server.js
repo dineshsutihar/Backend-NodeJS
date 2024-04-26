@@ -61,7 +61,7 @@ fs.unlink('./copy/HelloCopy.txt', (err) => {
 })
 
 //RM Dir
-fs.rmdir('./copy',{recursive:true}, (err) => {
+fs.rm('./copy',{recursive:true}, (err) => {
     if(err){
         console.log(err);
     } else {

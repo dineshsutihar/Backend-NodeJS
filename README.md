@@ -109,3 +109,10 @@ app.use(express.json());
 
 ### Here is link of Database Schema:
 [https://app.eraser.io/workspace/YtPqZ1VogxGy1jzIDkzj](https://app.eraser.io/workspace/YtPqZ1VogxGy1jzIDkzj)
+
+### Use Prettier from NPM
+ -  it is a dev dependency and we should install it as a dev dependency because if we are working in a team then everyone should have the same code style.
+
+ ```bash
+ npm i -D prettier
+ ```

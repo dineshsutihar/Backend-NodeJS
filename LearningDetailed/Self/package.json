@@ -1,0 +1,16 @@
+{
+  "name": "selflearning",
+  "version": "1.0.0",
+  "description": "",
+  "main": "restfull.js",
+
+  "scripts": {
+    "start": "node restfull.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Dinesh Sutihar",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.19.2"
+  }
+}

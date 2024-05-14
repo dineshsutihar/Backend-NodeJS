@@ -77,7 +77,7 @@ app.put("/user/:id", (req, res) => {
 
 //   Delete of id
   app.delete("/user/:id",(req,res)=>{
-    const id = req.params.id;
+    const id = Number(req.params.id);
     const index = findIndex(user, id); //to find the index of array
     if (index == -1) {
       res.status(411).send("Data not found");

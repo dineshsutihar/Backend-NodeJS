@@ -1,8 +1,11 @@
 const express = require("express");
 const path = require("path");
 const URL = require("./models/url");
+
 const urlRoute = require("./routes/url");
 const staticRouter = require("./routes/staticRouter");
+const userRouter = require("./routes/user");
+
 const { connectToMongoDB } = require("./connect");
 
 const app = express();
@@ -20,8 +23,9 @@ app.use(express.json()); // to accept json data
 app.use(express.urlencoded({ extended: false })); // to accept form data
 
 app.use("/", urlRoute);
+app.use("/user", userRouter);
 app.use("/", staticRouter);
-app.get("/:shortId", async (req, res) => {
+app.get("/user/:shortId", async (req, res) => {
   const shortId = req.params.shortId;
   const entry = await URL.findOneAndUpdate(
     {

@@ -15,13 +15,13 @@
     <% if (locals.id) { %>
     <p>
       URL Generated:
-      <a href="http://localhost:8001/<%=id %>"
-        >http://localhost:8001/<%=id %></a
+      <a href="http://localhost:8001/user/<%=id %>"
+        >http://localhost:8001/user/<%=id %></a
       >
     </p>
     <% } %>
     <div>
-      <form method="post" action="/">
+      <form method="post" action="/url">
         <label for="redirectURL">Enter Your Original URL</label>
         <input
           id="redirectURL"

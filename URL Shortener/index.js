@@ -2,7 +2,7 @@ const express = require("express");
 const path = require("path");
 const URL = require("./models/url");
 const cookieParser = require("cookie-parser");
-const { restrictToLoggedinUserOnly, checkAuth } = require("./middlewares/auth");
+const { checkForAuthentication, restrictTo } = require("./middlewares/auth");
 
 const urlRoute = require("./routes/url");
 const staticRouter = require("./routes/staticRouter");
@@ -24,10 +24,11 @@ app.set("views", path.resolve("./views"));
 app.use(express.json()); // to accept json data
 app.use(express.urlencoded({ extended: false })); // to accept form data
 app.use(cookieParser());
+app.use(checkForAuthentication);
 
-app.use("/url", restrictToLoggedinUserOnly, urlRoute);
+app.use("/url", restrictTo(["NORMAL"]), urlRoute);
 app.use("/", userRouter);
-app.use("/", checkAuth, staticRouter);
+app.use("/", staticRouter);
 
 app.get("/user/:shortId", async (req, res) => {
   const shortId = req.params.shortId;

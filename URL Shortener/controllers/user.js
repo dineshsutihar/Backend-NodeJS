@@ -24,9 +24,9 @@ async function handleUserLogin(req, res) {
     });
 
   // if every thing is fine then
-  const sessionId = uuidv4();
-  setUser(sessionId, user);
-  res.cookie("uid", sessionId);
+  // const sessionId = uuidv4(); now we dont require sessionId because we are now using stateless authentication using jwt
+  const token = setUser(user);
+  res.cookie("uid", token);
   return res.redirect("/");
 }
 

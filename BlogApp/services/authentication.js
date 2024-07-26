@@ -1,6 +1,6 @@
+require("dotenv").config();
 const JWT = require("jsonwebtoken");
-
-const secret = "#toBeC#@ng&"; // to be changed later
+const secret = process.env.SECRET; // to be changed later
 
 function createTokenForUser(user) {
   const payload = {

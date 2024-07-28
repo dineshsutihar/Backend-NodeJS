@@ -3,6 +3,7 @@
   <head>
     <%- include("./partials/head") %>
     <title>Add New Blog</title>
+    <%- include("./partials/addBlogStyles") %>
   </head>
   <body>
     <%- include("./partials/nav") %>
@@ -28,8 +29,7 @@
             aria-describedby="title"
           />
         </div>
-        <div class="mb-3">
-          <label for="body" class="form-label">Body</label>
+        <!-- <div class="mb-3">
           <textarea
             class="form-control"
             name="body"
@@ -37,12 +37,38 @@
             id="body"
             name="body"
           ></textarea>
-        </div>
+        </div> -->
+        <!-- New design will reflect here -->
+
+        <section id="mainSecion">
+          <div id="btn-section">
+            <div id="editBtn" class="btn btn-active">
+              <label for="body">Edit</label>
+            </div>
+            <div id="previewBtn" class="btn">
+              <label for="body">Preview</label>
+            </div>
+          </div>
+          <div class="mb-3 code-container">
+            <div class="line-numbers" id="lineNumbers"></div>
+            <textarea
+              class="form-control code-area"
+              oninput="updateLineNumbers()"
+              onscroll="syncScroll()"
+              name="body"
+              placeholder="Write Content here......."
+              id="codeArea"
+              name="body"
+            ></textarea>
+          </div>
+          <div class="mb-3" id="outContainer"></div>
+        </section>
         <div class="mb-3">
           <button class="btn btn-primary" type="submit">Submit</button>
         </div>
       </form>
     </div>
-    <%-include("./partials/scripts") %>
+    <%-include("./partials/scripts") %> <%-include("./partials/addBlogScript")
+    %>
   </body>
 </html>

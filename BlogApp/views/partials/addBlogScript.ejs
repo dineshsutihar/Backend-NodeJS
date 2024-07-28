@@ -1,0 +1,57 @@
+<script
+  src="https://cdnjs.cloudflare.com/ajax/libs/marked/13.0.2/marked.min.js"
+  integrity="sha512-jgz4C96OfzV2kykay5VdAg1Yp0UV6/k8UD28SlioNuQQB7gOq94RnU1c6a4zxz+cBH+AOxf7RrgEqg8PmFFjAA=="
+  crossorigin="anonymous"
+  referrerpolicy="no-referrer"
+></script>
+
+<script>
+  const codeArea = document.getElementById("codeArea");
+  const lineNumbers = document.getElementById("lineNumbers");
+  const mdContent = document.getElementById("codeArea");
+  const previewBtn = document.getElementById("previewBtn");
+  const editBtn = document.getElementById("editBtn");
+  const codeContainer = document.querySelector(".code-container");
+
+  //   preview button click event
+  previewBtn.addEventListener("click", (e) => {
+    codeContainer.style.display = "none";
+    previewBtn.classList.toggle("btn-active");
+    editBtn.classList.toggle("btn-active");
+
+    document.getElementById("outContainer").style.display = "block";
+    if (mdContent.value) {
+      document.getElementById("outContainer").innerHTML = marked.parse(
+        mdContent.value
+      );
+    } else {
+      document.getElementById("outContainer").innerHTML = marked.parse(
+        `// Nothing to displya`
+      );
+    }
+  });
+
+  //edit button click event
+  editBtn.addEventListener("click", (e) => {
+    editBtn.classList.toggle("btn-active");
+    previewBtn.classList.toggle("btn-active");
+
+    codeContainer.style.display = "flex";
+    document.getElementById("outContainer").style.display = "none";
+  });
+
+  function updateLineNumbers() {
+    const lines = codeArea.value.split("\n").length;
+    let lineNumbersHtml = "";
+    for (let i = 1; i <= lines; i++) {
+      lineNumbersHtml += i + "<br>";
+    }
+    lineNumbers.innerHTML = lineNumbersHtml;
+  }
+
+  function syncScroll() {
+    lineNumbers.scrollTop = codeArea.scrollTop;
+  }
+
+  updateLineNumbers();
+</script>

@@ -1,6 +1,7 @@
 const { Router } = require("express");
 const multer = require("multer");
 const path = require("path");
+const { marked } = require("marked");
 
 const Blog = require("../models/blog");
 const Comment = require("../models/comment");
@@ -31,6 +32,9 @@ router.get("/:id", async (req, res) => {
   const comments = await Comment.find({ blogId: req.params.id }).populate(
     "createdBy"
   );
+  // blog = ;
+  // blog = marked.parse(blog);
+  
   return res.render("blog", {
     user: req.user,
     blog,
